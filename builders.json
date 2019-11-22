@@ -1,0 +1,9 @@
+{
+  "builders": {
+    "plugin": {
+      "implementation": "./dist/plugin",
+      "schema": "./dist/plugin/schema.json",
+      "description": "Build plugin app extended with custom webpack config"
+    }
+  }
+}
