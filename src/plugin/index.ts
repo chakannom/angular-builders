@@ -66,11 +66,12 @@ function patchWebpackConfig(config: webpack.Configuration) {
   delete config.entry.styles;
 
   config.externals = {
-    rxjs: 'rxjs',
     '@angular/core': 'ng.core',
     '@angular/common': 'ng.common',
+    '@angular/common/http': 'ng.common.http',
     '@angular/forms': 'ng.forms',
     '@angular/router': 'ng.router',
+    rxjs: 'rxjs',
     tslib: 'tslib'
     // put here other common dependencies
   };
