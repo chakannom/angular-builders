@@ -49,7 +49,7 @@ function patchEntryPoint(contents: string) {
 }
 
 function patchWebpackConfig(config: webpack.Configuration) {
-  const { pluginName, sharedLibs } = jsonOption;
+  const { pluginName, sharedLibs, externals } = jsonOption;
 
   if (!jsonOption.modulePath) {
     throw Error('Please define modulePath!');
@@ -59,22 +59,18 @@ function patchWebpackConfig(config: webpack.Configuration) {
     throw Error('Please provide pluginName!');
   }
 
+  if (Object.keys(jsonOption.externals).length === 0
+   && jsonOption.externals.constructor === Object) {
+    throw Error('Please provide externals!');
+  }
+
   // Make sure we are producing a single bundle
   delete config.entry.polyfills;
   delete config.optimization.runtimeChunk;
   delete config.optimization.splitChunks;
   delete config.entry.styles;
 
-  config.externals = {
-    '@angular/core': 'ng.core',
-    '@angular/common': 'ng.common',
-    '@angular/common/http': 'ng.common.http',
-    '@angular/forms': 'ng.forms',
-    '@angular/router': 'ng.router',
-    rxjs: 'rxjs',
-    tslib: 'tslib'
-    // put here other common dependencies
-  };
+  config.externals = externals;
 
   if (sharedLibs) {
     config.externals = [config.externals];

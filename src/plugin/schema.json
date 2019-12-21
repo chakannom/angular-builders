@@ -19,6 +19,11 @@
       "description": "A comma-delimited list of shared lib names used by current plugin",
       "default": ""
     },
+    "externals": {
+      "type": "object",
+      "description": "Information about external libraries",
+      "default": {}
+    },
     "assets": {
       "type": "array",
       "description": "List of static application assets.",
