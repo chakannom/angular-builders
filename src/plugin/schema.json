@@ -22,7 +22,15 @@
     "externals": {
       "type": "object",
       "description": "Information about external libraries",
-      "default": {}
+      "default": {
+        "@angular/core": "ng.core",
+        "@angular/common": "ng.common",
+        "@angular/common/http": "ng.common.http",
+        "@angular/forms": "ng.forms",
+        "@angular/router": "ng.router",
+        "rxjs": "rxjs",
+        "tslib": "tslib"
+      }
     },
     "assets": {
       "type": "array",

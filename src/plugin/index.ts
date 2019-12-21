@@ -59,11 +59,6 @@ function patchWebpackConfig(config: webpack.Configuration) {
     throw Error('Please provide pluginName!');
   }
 
-  if (Object.keys(jsonOption.externals).length === 0
-   && jsonOption.externals.constructor === Object) {
-    throw Error('Please provide externals!');
-  }
-
   // Make sure we are producing a single bundle
   delete config.entry.polyfills;
   delete config.optimization.runtimeChunk;
