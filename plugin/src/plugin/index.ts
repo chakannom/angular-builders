@@ -114,4 +114,3 @@ function patchWebpackConfig(config: webpack.Configuration) {
 }
 
 export default createBuilder<JsonObject>(buildPlugin);
-//
